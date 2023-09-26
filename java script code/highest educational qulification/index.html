@@ -1,0 +1,60 @@
+<!-- <html>  
+<body>  
+<br><b> Choose your favroite season: </b><br>  
+<input type="radio" name="season" id="summer" value="Summer"> Summer <br>   
+<input type="radio" name="season" id="winter" value="Winter"> Winter <br>   
+<input type="radio" name="season" id="rainy" value="Rainy"> Rainy <br>  
+<input type="radio" name="season" id="autumn" value="Autumn"> Autumn   
+<br><br>       
+  
+<button type="button" onclick=" checkButton()"> Submit </button>   
+      
+<h3 id="disp" style= "color:green"> </h3>  
+<h4 id="error" style= "color:red"> </h4>  
+</body>  
+  
+<script>  
+    function checkButton() {    
+            var getSelectedValue = document.querySelector(   
+                'input[name="season"]:checked');   
+                
+            if(getSelectedValue != null) {   
+                document.getElementById("disp").innerHTML   
+                    = getSelectedValue.value   
+                    + " season is selected";   
+            }   
+            else {   
+                document.getElementById("error").innerHTML   
+                    = "*You have not selected any season";   
+            }   
+        }    
+    </script>   
+</html>   -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>education</title>
+</head>
+<body>
+    <div id="wrapper">
+        <h2>Select your Qualifications</h2>
+        <div class="inputdiv">
+            <div id="input">
+            <input type="radio"name="season" value="Illiterate"> Illiterate <br>
+            <input type="radio" name="season" value="Highschool"> HighSchool<br>
+            <input type="radio" name="season" value="UG">UG<br>
+            <input type="radio" name="season" value="PG">PG<br>
+            <input type="radio" name="season" value="Doctarate">Doctarate<br>
+    </div>
+        <div>
+            <button type="submit">Select qualification</button>
+        </div>
+    </div>
+    <script src="script.js"> 
+
+    </script>
+</body>
+</html>

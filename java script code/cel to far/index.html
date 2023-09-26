@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Celcius to Farenhiet</title>
+</head>
+<body>
+    <div id="wrapper">
+        <h2>Celcius to Farenhiet</h2>
+        <div id="inputdiv">
+            <input type="text" id="input" placeholder="enter a number">
+        </div>
+        <div>
+            <button class="submit" onclick="convert()">covert to farenhiet</button>
+        </div>
+        <div id="result">
+
+        </div>
+    </div>
+    <script>
+        function convert(){
+            const cel = Number(document.getElementById("input").value)
+            const far = (cel*1.8)+34
+            const result = document.getElementById("result")
+            result.innerHTML=far + "\u00B0F"
+        }
+    </script>
+</body>
+</html>

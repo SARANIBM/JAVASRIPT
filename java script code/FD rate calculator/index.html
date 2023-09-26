@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>FD RATE CALC</title>
+</head>
+<body>
+    <div id="wrapper">
+        <h2>FD Rate Calculator</h2>
+        <div class="inputdiv">
+            <input type="text" id="input" placeholder="tenture month">
+        </div>
+        <div>
+            <button type="submit" onclick="calculate()">Calculate</button>
+        </div>
+        <div id="result">
+
+        </div>
+    </div>
+    <script>
+        function calculate(){
+           const month = Number(document.getElementById("input").value)
+           let rate=0
+            if(month<3) 
+               rate=5.8
+            else if(month>=3 && month<=6)
+               rate=6.5
+            else if(month>=7 && month<=9)
+               rate=6.8
+            else
+               rate=7
+           const result = document.querySelector("#result")
+           result.innerHTML="Your Interest ratte is" + rate + "%"   
+        }
+    </script>
+</body>
+</html>

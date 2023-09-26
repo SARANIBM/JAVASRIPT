@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather Forecast</title>
+</head>
+<body>
+    <h1>Weather Forecast</h1>
+    <div>
+        <label for="city">Enter City:</label>
+        <input type="text" id="city" placeholder="Enter city name" required>
+        <button id="getWeather">Get Weather</button>
+    </div>
+    <div id="weatherResult"></div>
+
+    <script>
+        // Replace with your OpenWeatherMap API key
+        const apiKey = '90526f90b77ecffe206ab78a9b064221';
+
+        // Function to fetch weather data
+        async function getWeatherData(city) {
+            try {
+                const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`);
+                const data = await response.json();
+                return data;
+            } catch (error) {
+                console.error('Error fetching weather data:', error);
+                return null;
+            }
+        }
+
+        // Function to display weather data
+        function displayWeather(data) {
+            if (data) {
+                const cityName = data.name;
+                const temperature = data.main.temp;
+                const description = data.weather[0].description;
+
+                const resultElement = document.getElementById('weatherResult');
+                resultElement.innerHTML = `<p>City: ${cityName}</p>
+                                           <p>Temperature: ${temperature}°C</p>
+                                           <p>Description: ${description}</p>`;
+            } else {
+                const resultElement = document.getElementById('weatherResult');
+                resultElement.innerHTML = '<p>Weather data not found.</p>';
+            }
+        }
+
+        // Event listener for the "Get Weather" button
+        document.getElementById('getWeather').addEventListener('click', async () => {
+            const city = document.getElementById('city').value;
+            const weatherData = await getWeatherData(city);
+            displayWeather(weatherData);
+        });
+    </script>
+</body>
+</html>
